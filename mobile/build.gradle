@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+/*Properties credentials = new Properties()
+credentials.load(new FileInputStream(file(rootProject.file("credentials.properties"))))*/
+def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+
+    defaultConfig {
+        applicationId androidApplicationId
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode androidVersionCode
+        versionName androidVersionName
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    /*signingConfigs {
+        master {
+            storeFile file(credentials["signing.store.file"])
+            storePassword credentials["signing.store.password"]
+            keyAlias credentials["signing.key.alias"]
+            keyPassword credentials["signing.key.password"]
+        }
+    }*/
+
+    buildTypes {
+        release {
+            debuggable false
+            jniDebuggable false
+            minifyEnabled true
+            shrinkResources true
+//            signingConfig signingConfigs.master
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            versionNameSuffix "-DEBUG"
+            applicationIdSuffix '.debug'
+            debuggable true
+            jniDebuggable true
+            minifyEnabled false
+            shrinkResources false
+//            signingConfig signingConfigs.master
+
+            buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
+            buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    compile project(path: ':domain')
+    compile project(path: ':data')
+
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    compile "com.google.dagger:dagger:$daggerVersion"
+    compile "com.google.dagger:dagger-android:$daggerVersion"
+    compile "com.google.dagger:dagger-android-support:$daggerVersion"
+
+//    compile "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+//    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    // + reactive permissions / permission dispatcher
+    // + rxbinding?
+
+//    compile "com.jakewharton.timber:timber:$timberVersion"
+
+//    compile "com.google.android.gms:play-services-location:$playServicesVersion"
+
+    // + android architecture - room
+
+    //crashes
+//    debugCompile "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
+//    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+//    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+    // + crashlytics
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    testImplementation "junit:junit:$jUnitVersion"
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+}
