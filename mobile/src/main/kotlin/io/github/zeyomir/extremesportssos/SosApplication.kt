@@ -23,12 +23,12 @@ class SosApplication : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-        initDagger(this)
+        initDagger()
 
         Log.e("APPLICATION", helloService.sayHello())
     }
 
-    private fun initDagger(app: SosApplication) =
+    private fun initDagger() =
             DaggerAppComponent.builder()
                     .application(this)
                     .build()
