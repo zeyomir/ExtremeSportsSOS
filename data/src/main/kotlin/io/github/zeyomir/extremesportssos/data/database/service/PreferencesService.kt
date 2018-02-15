@@ -25,7 +25,7 @@ internal class PreferencesService @Inject constructor(private val preferences: S
         editor.apply()
     }
 
-    override fun saveSosMessage(message: String?) {
+    override fun saveSosMessage(message: String) {
         val editor = preferences.edit()
         editor.putString(MESSAGE_HELP_KEY, message)
         editor.apply()

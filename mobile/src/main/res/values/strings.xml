@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Extreme Sports SOS</string>
+
+    <string name="default_sos_message">Hi, I went crosscountry on horseback and now it seems that I\'m not moving for quite some time.\nIt might be that I\'m resting or just lost my phone , call me to check if all is cool.\nIf it\'s not, here is a link to my current location:</string>
 </resources>

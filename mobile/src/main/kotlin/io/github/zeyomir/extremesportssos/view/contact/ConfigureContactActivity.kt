@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_contact.next
 import android.provider.ContactsContract
 import android.content.Intent
 import android.database.Cursor
+import io.github.zeyomir.extremesportssos.view.message.ConfigureMessageActivity
 
 
 class ConfigureContactActivity : AppCompatActivity(), ConfigureContactView {
@@ -75,6 +76,7 @@ class ConfigureContactActivity : AppCompatActivity(), ConfigureContactView {
     }
 
     override fun nextScreen() {
-        Toast.makeText(this, "HOORAY!! NEXT SCREEN!", Toast.LENGTH_SHORT).show()
+        val i = Intent(this, ConfigureMessageActivity::class.java)
+        startActivity(i)
     }
 }

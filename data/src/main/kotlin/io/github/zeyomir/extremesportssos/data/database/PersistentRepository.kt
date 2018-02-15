@@ -13,4 +13,8 @@ internal class PersistentRepository @Inject constructor(private val keyValueServ
     override fun saveContact(sosContact: SosContact) = keyValueService.saveSosContact(sosContact)
 
     override fun fetchContact() = keyValueService.getSosContact()
+
+    override fun fetchMessage() = keyValueService.getSosMessage()
+
+    override fun saveMessage(message: String) = keyValueService.saveSosMessage(message)
 }

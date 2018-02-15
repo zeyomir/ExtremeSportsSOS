@@ -14,6 +14,7 @@
         <activity android:name=".view.main.MainActivity"
             android:theme="@style/AppTheme.BrandedLaunch"/>
         <activity android:name=".view.contact.ConfigureContactActivity" />
+        <activity android:name=".view.message.ConfigureMessageActivity" />
 
         <activity-alias
             android:name=".Launcher"

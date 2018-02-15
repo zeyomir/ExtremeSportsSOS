@@ -5,6 +5,10 @@ import io.github.zeyomir.extremesportssos.domain.entity.SosContact
 
 interface LocalRepository {
     fun hasContact(): Boolean
+
     fun fetchContact(): SosContact?
     fun saveContact(sosContact: SosContact)
+
+    fun fetchMessage(): String?
+    fun saveMessage(message: String)
 }
