@@ -27,6 +27,11 @@ class WelcomeActivity : AppCompatActivity(), WelcomeView {
         presenter.checkConfig()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.unbind()
+    }
+
     override fun goToNextScreen() {
         val i = Intent(this, MainActivity::class.java)
         startActivity(i)

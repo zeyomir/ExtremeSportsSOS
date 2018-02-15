@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main_start">START</string>
+    <string name="main_settings">SETTINGS</string>
+    <string name="main_contact">Your contact is %s</string>
+    <string name="main_message">Your message is\n%s</string>
+    <string name="main_text">Wan\'t to change it? Go to settings!</string>
+</resources>

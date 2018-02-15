@@ -32,6 +32,11 @@ class ConfigureMessageActivity : AppCompatActivity(), ConfigureMessageView {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.unbind()
+    }
+
     override fun setData(message: String?) {
         this.message.setText(if (message.isNullOrEmpty()) defaultMessage else message)
     }

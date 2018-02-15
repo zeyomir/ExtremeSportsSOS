@@ -66,6 +66,11 @@ class ConfigureContactActivity : AppCompatActivity(), ConfigureContactView {
         cursor.close()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.unbind()
+    }
+
     override fun setData(contactInfo: String?, contactName: String?) {
         info.setText(contactInfo)
         name.setText(contactName)
