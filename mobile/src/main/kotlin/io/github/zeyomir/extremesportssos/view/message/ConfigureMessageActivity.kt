@@ -1,11 +1,13 @@
 package io.github.zeyomir.extremesportssos.view.message
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import dagger.android.AndroidInjection
 import io.github.zeyomir.extremesportssos.R
 import io.github.zeyomir.extremesportssos.presenter.message.MessagePresenter
+import io.github.zeyomir.extremesportssos.view.main.MainActivity
 import javax.inject.Inject
 
 import kotlinx.android.synthetic.main.activity_message.message
@@ -22,7 +24,7 @@ class ConfigureMessageActivity : AppCompatActivity(), ConfigureMessageView {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_message)
-        defaultMessage = getString(R.string.default_sos_message)
+        defaultMessage = getString(R.string.configure_message_default)
         presenter.bind(this)
         presenter.fetchMessage()
         next.setOnClickListener {
@@ -35,12 +37,16 @@ class ConfigureMessageActivity : AppCompatActivity(), ConfigureMessageView {
     }
 
     override fun showMessageEmptyError() {
-        message.setText(R.string.default_sos_message)
-        Toast.makeText(this, "You have to provide a message, here is the default one again", Toast.LENGTH_SHORT).show()
+        message.setText(R.string.configure_message_default)
+        Toast.makeText(this, R.string.configure_message_validation_error, Toast.LENGTH_SHORT).show()
     }
 
     override fun nextScreen() {
-        Toast.makeText(this, "Hooray! next screen!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.configure_message_done, Toast.LENGTH_SHORT).show()
+        val i = Intent(this, MainActivity::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(i)
+        finish()
     }
 
 }

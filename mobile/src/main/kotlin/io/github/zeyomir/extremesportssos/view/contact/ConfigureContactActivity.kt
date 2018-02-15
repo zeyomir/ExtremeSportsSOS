@@ -72,7 +72,7 @@ class ConfigureContactActivity : AppCompatActivity(), ConfigureContactView {
     }
 
     override fun showContactInfoEmptyError() {
-        Toast.makeText(this, "Provide contact telephone number", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.configure_contact_validation_error, Toast.LENGTH_SHORT).show()
     }
 
     override fun nextScreen() {

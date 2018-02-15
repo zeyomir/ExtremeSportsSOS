@@ -11,15 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.main.MainActivity"
+        <activity android:name=".view.welcome.WelcomeActivity"
             android:theme="@style/AppTheme.BrandedLaunch"/>
         <activity android:name=".view.contact.ConfigureContactActivity" />
         <activity android:name=".view.message.ConfigureMessageActivity" />
+        <activity android:name=".view.main.MainActivity" />
 
         <activity-alias
             android:name=".Launcher"
             android:label="@string/app_name"
-            android:targetActivity=".view.main.MainActivity">
+            android:targetActivity=".view.welcome.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

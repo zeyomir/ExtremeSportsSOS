@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="configure_contact_title">SOS contact</string>
+    <string name="configure_contact_text">Pick your SOS contact number\nWho do you want to notice when something goes wrong?</string>
+    <string name="configure_contact_hint_phone">Phone number</string>
+    <string name="configure_contact_hint_name">Name</string>
+    <string name="configure_contact_pick">Pick from contacts</string>
+    <string name="configure_contact_validation_error">Provide contact telephone number!</string>
+</resources>

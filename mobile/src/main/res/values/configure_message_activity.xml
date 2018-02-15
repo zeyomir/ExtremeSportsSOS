@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="configure_message_title">SOS message</string>
+    <string name="configure_message_text">Enter your SOS message, just don\'t make it too long!\nLink to map with your current position will be appended to the end of the message</string>
+    <string name="configure_message_default">Hi, I went crosscountry on horseback and now it seems that I\'m not moving for quite some time.\nIt might be that I\'m resting or just lost my phone , call me to check if all is cool.\nIf it\'s not, here is a link to my current location:</string>
+    <string name="configure_message_validation_error">You have to provide a message, here is the default one again</string>
+    <string name="configure_message_done">That\'s all! You can start using the app now</string>
+</resources>

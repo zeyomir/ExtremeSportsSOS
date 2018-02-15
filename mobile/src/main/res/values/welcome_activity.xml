@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome_activity_title">Hi there!</string>
+    <string name="welcome_activity_text">blah blah\nQUICK CONFIG\nblah blah</string>
+    <string name="welcome_activity_config_button">CONFIG</string>
+</resources>
