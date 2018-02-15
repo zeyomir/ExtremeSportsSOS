@@ -45,7 +45,7 @@
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_navigate_next" />
+        app:srcCompat="@drawable/ic_done" />
 
 
 </android.support.constraint.ConstraintLayout>
