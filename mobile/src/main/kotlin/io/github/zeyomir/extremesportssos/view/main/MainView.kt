@@ -1,4 +1,4 @@
-package io.github.zeyomir.extremesportssos.view
+package io.github.zeyomir.extremesportssos.view.main
 
 
 interface MainView {

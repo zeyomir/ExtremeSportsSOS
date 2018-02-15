@@ -2,11 +2,14 @@ package io.github.zeyomir.extremesportssos.di.module
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import io.github.zeyomir.extremesportssos.view.MainActivity
+import io.github.zeyomir.extremesportssos.view.contact.ConfigureContactActivity
+import io.github.zeyomir.extremesportssos.view.main.MainActivity
 
 
 @Module
 abstract class BuildersModule {
-    @ContributesAndroidInjector(modules = [MainActivityModule::class])
+    @ContributesAndroidInjector
     abstract fun bindMainActivity(): MainActivity
+    @ContributesAndroidInjector
+    abstract fun bindContactActivity(): ConfigureContactActivity
 }

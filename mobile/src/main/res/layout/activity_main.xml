@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context="io.github.zeyomir.extremesportssos.view.MainActivity">
+    tools:context="io.github.zeyomir.extremesportssos.view.main.MainActivity">
 
     <RelativeLayout
         android:id="@+id/view"
@@ -32,6 +32,7 @@
 
         <Button
             android:id="@+id/button"
+            android:drawableEnd="@drawable/ic_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

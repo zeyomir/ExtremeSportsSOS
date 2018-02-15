@@ -8,7 +8,6 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import io.github.zeyomir.extremesportssos.common.HelloService
 import io.github.zeyomir.extremesportssos.di.component.DaggerAppComponent
-import io.github.zeyomir.extremesportssos.view.MagicHelloService
 import javax.inject.Inject
 
 

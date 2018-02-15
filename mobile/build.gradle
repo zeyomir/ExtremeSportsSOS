@@ -74,6 +74,7 @@ dependencies {
     compile project(path: ':data')
 
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "com.android.support:design:$supportVersion"
 
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"

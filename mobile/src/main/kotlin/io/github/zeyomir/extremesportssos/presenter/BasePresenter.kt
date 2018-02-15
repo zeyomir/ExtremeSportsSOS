@@ -1,22 +1,18 @@
 package io.github.zeyomir.extremesportssos.presenter
 
 
-abstract class MainPresenter<View> {
+abstract class BasePresenter<View> : BasePresenerInterface<View> {
     protected var view: View? = null
+        private set
 
-    fun bind(view: View) {
+    override fun bind(view: View) {
         if (this.view != null) {
             throw RuntimeException("Concurrent viwe bind!")
         }
         this.view = view
-        afterBind()
     }
 
-    open fun afterBind() {
-
-    }
-
-    fun unbind() {
+    override fun unbind() {
         view = null
     }
 }
