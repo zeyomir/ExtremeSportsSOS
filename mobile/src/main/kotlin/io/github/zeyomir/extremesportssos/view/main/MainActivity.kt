@@ -9,6 +9,7 @@ import io.github.zeyomir.extremesportssos.R
 import io.github.zeyomir.extremesportssos.domain.entity.SosContact
 import io.github.zeyomir.extremesportssos.presenter.main.MainPresenter
 import io.github.zeyomir.extremesportssos.view.contact.ConfigureContactActivity
+import io.github.zeyomir.extremesportssos.view.map.MapActivity
 import kotlinx.android.synthetic.main.activity_main.contact_info
 import kotlinx.android.synthetic.main.activity_main.sos_message
 import kotlinx.android.synthetic.main.activity_main.start
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.config
 import javax.inject.Inject
 
 
-class MainActivity: AppCompatActivity(), MainView {
+class MainActivity : AppCompatActivity(), MainView {
 
     @Inject
     lateinit var presenter: MainPresenter
@@ -28,7 +29,8 @@ class MainActivity: AppCompatActivity(), MainView {
         presenter.bind(this)
         presenter.fetchData()
         start.setOnClickListener {
-            Toast.makeText(this, R.string.general_next_screen, Toast.LENGTH_SHORT).show()
+            val i = Intent(this, MapActivity::class.java)
+            startActivity(i)
         }
         config.setOnClickListener {
             val i = Intent(this, ConfigureContactActivity::class.java)

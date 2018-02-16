@@ -83,13 +83,15 @@ dependencies {
     compile "com.google.dagger:dagger-android-support:$daggerVersion"
 
 //    compile "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-//    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    // + reactive permissions / permission dispatcher
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile("com.github.hotchemi:permissionsdispatcher:$permissionsdispatcherVersion") {
+        exclude module: "support-v13"
+    }
+    kapt "com.github.hotchemi:permissionsdispatcher-processor:$permissionsdispatcherVersion"
     // + rxbinding?
 
 //    compile "com.jakewharton.timber:timber:$timberVersion"
 
-//    compile "com.google.android.gms:play-services-location:$playServicesVersion"
 
     // + android architecture - room
 

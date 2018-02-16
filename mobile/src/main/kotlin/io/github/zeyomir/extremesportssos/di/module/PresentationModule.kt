@@ -7,6 +7,8 @@ import io.github.zeyomir.extremesportssos.presenter.contact.ConfigureContactActi
 import io.github.zeyomir.extremesportssos.presenter.contact.ContactPresenter
 import io.github.zeyomir.extremesportssos.presenter.main.MainActivityPresenter
 import io.github.zeyomir.extremesportssos.presenter.main.MainPresenter
+import io.github.zeyomir.extremesportssos.presenter.map.MapActivityPresenter
+import io.github.zeyomir.extremesportssos.presenter.map.MapPresenter
 import io.github.zeyomir.extremesportssos.presenter.welcome.WelcomeActivityPresenter
 import io.github.zeyomir.extremesportssos.presenter.welcome.WelcomePresenter
 import io.github.zeyomir.extremesportssos.presenter.message.ConfigureMessageActivityPresenter
@@ -38,5 +40,11 @@ class PresentationModule {
     @Singleton
     fun provideMainPresenter(fetchContact: FetchContactUseCase, fetchMessage: FetchMessageUseCase): MainPresenter {
         return MainActivityPresenter(fetchContact, fetchMessage)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMapPresenter(alertOnUserIsStill: AlertOnUserIsStillUseCase): MapPresenter {
+        return MapActivityPresenter(alertOnUserIsStill)
     }
 }

@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import io.github.zeyomir.extremesportssos.view.contact.ConfigureContactActivity
 import io.github.zeyomir.extremesportssos.view.main.MainActivity
+import io.github.zeyomir.extremesportssos.view.map.MapActivity
 import io.github.zeyomir.extremesportssos.view.welcome.WelcomeActivity
 import io.github.zeyomir.extremesportssos.view.message.ConfigureMessageActivity
 
@@ -18,4 +19,6 @@ abstract class BuildersModule {
     abstract fun bindMessageActivity(): ConfigureMessageActivity
     @ContributesAndroidInjector
     abstract fun bindMainActivity(): MainActivity
+    @ContributesAndroidInjector
+    abstract fun bindMapActivity(): MapActivity
 }

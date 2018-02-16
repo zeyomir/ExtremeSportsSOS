@@ -1,7 +1,11 @@
 package io.github.zeyomir.extremesportssos.presenter
 
+import io.reactivex.disposables.CompositeDisposable
+
 
 abstract class BasePresenter<View> : BasePresenerInterface<View> {
+    protected val compositeDisposable = CompositeDisposable()
+
     protected var view: View? = null
         private set
 
@@ -13,6 +17,7 @@ abstract class BasePresenter<View> : BasePresenerInterface<View> {
     }
 
     override fun unbind() {
+        compositeDisposable.clear()
         view = null
     }
 }
