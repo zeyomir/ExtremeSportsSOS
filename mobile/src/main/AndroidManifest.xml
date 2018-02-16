@@ -21,9 +21,7 @@
             android:theme="@style/AppTheme.BrandedLaunch" />
         <activity android:name=".view.contact.ConfigureContactActivity" />
         <activity android:name=".view.message.ConfigureMessageActivity" />
-        <activity
-            android:name=".view.main.MainActivity"
-            android:launchMode="singleInstance" />
+        <activity android:name=".view.main.MainActivity" />
         <activity android:name=".view.map.MapActivity" />
 
         <activity-alias
