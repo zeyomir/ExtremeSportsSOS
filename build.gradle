@@ -8,10 +8,10 @@ buildscript {
         androidVersionName = '1.0.0'
 
         //Android
-        androidBuildToolsVersion = '26.0.3'
+        androidBuildToolsVersion = '27.0.3'
         androidMinSdkVersion = 21
-        androidTargetSdkVersion = 26
-        androidCompileSdkVersion = 26
+        androidTargetSdkVersion = 27
+        androidCompileSdkVersion = 27
 
         kotlinVersion = '1.2.21'
 
