@@ -2,9 +2,9 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/contact_info"
@@ -47,6 +47,7 @@
         android:id="@+id/config"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_settings"
         android:text="@string/main_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
