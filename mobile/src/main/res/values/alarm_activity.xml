@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="alarm_title">Are you OK?</string>
+    <string name="alarm_text1">Your have not moved for some time, are you just resting or should I send SOS?</string>
+    <string name="alarm_text2">If you don\'t react within the next</string>
+    <string name="alarm_text3">I will send SMS with your current position to your configured contact!</string>
+    <string name="alarm_fine_button">I\'M FINE</string>
+    <plurals name="alarm_seconds">
+        <item quantity="one">%d second</item>
+        <item quantity="other">%d seconds</item>
+    </plurals>
+</resources>

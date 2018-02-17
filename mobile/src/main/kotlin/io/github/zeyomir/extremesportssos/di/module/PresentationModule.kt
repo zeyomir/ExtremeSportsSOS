@@ -3,16 +3,19 @@ package io.github.zeyomir.extremesportssos.di.module
 import dagger.Module
 import dagger.Provides
 import io.github.zeyomir.extremesportssos.domain.usecase.*
+import io.github.zeyomir.extremesportssos.presenter.alarm.AlarmActivityPresenter
+import io.github.zeyomir.extremesportssos.presenter.alarm.AlarmPresenter
 import io.github.zeyomir.extremesportssos.presenter.contact.ConfigureContactActivityPresenter
 import io.github.zeyomir.extremesportssos.presenter.contact.ContactPresenter
 import io.github.zeyomir.extremesportssos.presenter.main.MainActivityPresenter
 import io.github.zeyomir.extremesportssos.presenter.main.MainPresenter
 import io.github.zeyomir.extremesportssos.presenter.map.MapActivityPresenter
 import io.github.zeyomir.extremesportssos.presenter.map.MapPresenter
-import io.github.zeyomir.extremesportssos.presenter.welcome.WelcomeActivityPresenter
-import io.github.zeyomir.extremesportssos.presenter.welcome.WelcomePresenter
 import io.github.zeyomir.extremesportssos.presenter.message.ConfigureMessageActivityPresenter
 import io.github.zeyomir.extremesportssos.presenter.message.MessagePresenter
+import io.github.zeyomir.extremesportssos.presenter.welcome.WelcomeActivityPresenter
+import io.github.zeyomir.extremesportssos.presenter.welcome.WelcomePresenter
+import javax.inject.Named
 import javax.inject.Singleton
 
 
@@ -46,5 +49,11 @@ class PresentationModule {
     @Singleton
     fun provideMapPresenter(alertOnUserIsStill: AlertOnUserIsStillUseCase): MapPresenter {
         return MapActivityPresenter(alertOnUserIsStill)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAlarmPresenter(playSound: PlaySoundUseCase, @Named("timeToWaitBeforeSendingMessage") timeToWait: Long): AlarmPresenter {
+        return AlarmActivityPresenter(playSound, timeToWait)
     }
 }

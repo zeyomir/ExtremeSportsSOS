@@ -23,6 +23,7 @@
         <activity android:name=".view.message.ConfigureMessageActivity" />
         <activity android:name=".view.main.MainActivity" />
         <activity android:name=".view.map.MapActivity" />
+        <activity android:name=".view.alarm.AlarmActivity" />
 
         <activity-alias
             android:name=".Launcher"

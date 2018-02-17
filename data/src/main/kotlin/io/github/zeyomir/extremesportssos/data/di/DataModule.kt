@@ -9,15 +9,20 @@ import io.github.zeyomir.extremesportssos.data.BuildConfig
 import io.github.zeyomir.extremesportssos.data.database.KeyValueService
 import io.github.zeyomir.extremesportssos.data.database.PersistentRepository
 import io.github.zeyomir.extremesportssos.data.database.service.PreferencesService
+import io.github.zeyomir.extremesportssos.data.device.sound.SoundManager
+import io.github.zeyomir.extremesportssos.data.device.sound.SoundService
+import io.github.zeyomir.extremesportssos.data.device.sound.service.AndroidSoundService
 import io.github.zeyomir.extremesportssos.data.sensors.LocationService
 import io.github.zeyomir.extremesportssos.data.sensors.SensorsRepository
 import io.github.zeyomir.extremesportssos.data.sensors.service.PlayServicesLocationService
+import io.github.zeyomir.extremesportssos.domain.driver.SoundDriver
 import io.github.zeyomir.extremesportssos.domain.repository.LocalRepository
 import io.github.zeyomir.extremesportssos.domain.repository.LocationRepository
 import io.nlopez.smartlocation.SmartLocation
 import io.nlopez.smartlocation.activity.config.ActivityParams
 import io.nlopez.smartlocation.rx.ObservableFactory
 import io.reactivex.Observable
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -57,4 +62,12 @@ class DataModule {
     @Provides
     @Singleton
     internal fun provideLocationRepository(service: LocationService): LocationRepository = SensorsRepository(service)
+
+    @Provides
+    @Singleton
+    internal fun provideSoundService(context: Context): SoundService = AndroidSoundService(context)
+
+    @Provides
+    @Singleton
+    internal fun provideSoundManager(soundService: SoundService, @Named("soundId") soundId: Int): SoundDriver = SoundManager(soundService, soundId)
 }

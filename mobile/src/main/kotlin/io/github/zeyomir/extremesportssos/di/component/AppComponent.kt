@@ -7,12 +7,13 @@ import io.github.zeyomir.extremesportssos.SosApplication
 import io.github.zeyomir.extremesportssos.data.di.DataModule
 import io.github.zeyomir.extremesportssos.di.module.AppModule
 import io.github.zeyomir.extremesportssos.di.module.BuildersModule
+import io.github.zeyomir.extremesportssos.di.module.ConfigModule
 import io.github.zeyomir.extremesportssos.di.module.PresentationModule
 import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [AndroidSupportInjectionModule::class, DataModule::class, AppModule::class, BuildersModule::class, PresentationModule::class])
+@Component(modules = [AndroidSupportInjectionModule::class, ConfigModule::class, DataModule::class, AppModule::class, BuildersModule::class, PresentationModule::class])
 interface AppComponent {
     @Component.Builder
     interface Builder {

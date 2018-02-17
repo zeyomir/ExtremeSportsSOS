@@ -8,10 +8,10 @@ import android.provider.Settings
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import dagger.android.AndroidInjection
 import io.github.zeyomir.extremesportssos.R
 import io.github.zeyomir.extremesportssos.presenter.map.MapPresenter
+import io.github.zeyomir.extremesportssos.view.alarm.AlarmActivity
 import io.github.zeyomir.extremesportssos.view.main.MainActivity
 import kotlinx.android.synthetic.main.activity_map.*
 import permissions.dispatcher.NeedsPermission
@@ -82,6 +82,8 @@ class MapActivity : AppCompatActivity(), MapView {
     }
 
     override fun triggerAlarm() {
-        Toast.makeText(this, R.string.general_next_screen, Toast.LENGTH_SHORT).show()
+        val i = Intent(this, AlarmActivity::class.java)
+        startActivity(i)
+        finish()
     }
 }
