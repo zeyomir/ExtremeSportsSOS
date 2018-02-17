@@ -16,6 +16,7 @@ import io.github.zeyomir.extremesportssos.data.sensors.LocationService
 import io.github.zeyomir.extremesportssos.data.sensors.SensorsRepository
 import io.github.zeyomir.extremesportssos.data.sensors.service.PlayServicesLocationService
 import io.github.zeyomir.extremesportssos.domain.driver.SoundDriver
+import io.github.zeyomir.extremesportssos.domain.entity.TimePeriod
 import io.github.zeyomir.extremesportssos.domain.repository.LocalRepository
 import io.github.zeyomir.extremesportssos.domain.repository.LocationRepository
 import io.nlopez.smartlocation.SmartLocation
@@ -45,7 +46,8 @@ class DataModule {
 
     @Provides
     @Singleton
-    internal fun provideActivityRecognitionConfig() = ActivityParams.Builder().setInterval(60_000L).build()
+    internal fun provideActivityRecognitionConfig(@Named("activityRecognitionInterval") activityRecognitionInterval: Long) =
+            ActivityParams.Builder().setInterval(activityRecognitionInterval).build()
 
     @Provides
     @Singleton
@@ -61,7 +63,7 @@ class DataModule {
 
     @Provides
     @Singleton
-    internal fun provideLocationRepository(service: LocationService): LocationRepository = SensorsRepository(service)
+    internal fun provideLocationRepository(service: LocationService, @Named("timeToTellStillness") timeToTellStillness: TimePeriod): LocationRepository = SensorsRepository(service, timeToTellStillness)
 
     @Provides
     @Singleton
