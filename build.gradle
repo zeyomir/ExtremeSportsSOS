@@ -17,7 +17,7 @@ buildscript {
 
         //Libraries
         supportVersion = '27.0.2'
-        playServicesVersion = '11.4.2' //11.8.0
+        playServicesVersion = '11.8.0'
 
         daggerVersion = '2.13'
         rxJavaVersion = '2.1.1'
