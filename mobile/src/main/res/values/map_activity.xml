@@ -3,7 +3,7 @@
     <string name="map_permissions_title">Permissions needed</string>
     <string name="map_permissions_text">If this is going to work, we need a permission to access your location (to check whether you are moving or not) and a permission to send sms messages (to notice your configured contact that something went wrong)</string>
     <string name="map_permissions_button">CHECK PERMISSIONS</string>
-
+    <string name="map_gps_off">Can\'t proceed when GPS is not set to high accuracy mode</string>
     <string name="map_button_help">HELP!</string>
     <string name="map_button_done">FINISH</string>
 
