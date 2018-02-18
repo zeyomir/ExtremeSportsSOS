@@ -5,4 +5,5 @@ interface MapView {
     fun displayPermissionsMessage()
     fun displayMap()
     fun triggerAlarm()
+    fun goToSendMessageScreen()
 }

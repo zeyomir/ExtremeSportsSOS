@@ -1,9 +1,9 @@
 package io.github.zeyomir.extremesportssos.data.sensors
 
-import io.github.zeyomir.extremesportssos.domain.entity.ActivityType
-import io.reactivex.Observable
+import io.github.zeyomir.extremesportssos.domain.entity.Coordinates
+import io.reactivex.Single
 
 
 interface LocationService {
-    fun userMovingUpdates(): Observable<ActivityType>
+    fun current(): Single<Coordinates>
 }

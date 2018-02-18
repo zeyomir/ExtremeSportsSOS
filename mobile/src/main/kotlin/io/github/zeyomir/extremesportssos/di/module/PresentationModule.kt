@@ -13,6 +13,8 @@ import io.github.zeyomir.extremesportssos.presenter.map.MapActivityPresenter
 import io.github.zeyomir.extremesportssos.presenter.map.MapPresenter
 import io.github.zeyomir.extremesportssos.presenter.message.ConfigureMessageActivityPresenter
 import io.github.zeyomir.extremesportssos.presenter.message.MessagePresenter
+import io.github.zeyomir.extremesportssos.presenter.send.SendMessageActivityPresenter
+import io.github.zeyomir.extremesportssos.presenter.send.SendMessagePresenter
 import io.github.zeyomir.extremesportssos.presenter.welcome.WelcomeActivityPresenter
 import io.github.zeyomir.extremesportssos.presenter.welcome.WelcomePresenter
 import javax.inject.Named
@@ -55,5 +57,11 @@ class PresentationModule {
     @Singleton
     fun provideAlarmPresenter(playSound: PlaySoundUseCase, @Named("timeToWaitBeforeSendingMessage") timeToWait: Long): AlarmPresenter {
         return AlarmActivityPresenter(playSound, timeToWait)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSendMessagePresenter(sendSosMessage: SendSosMessageUseCase): SendMessagePresenter {
+        return SendMessageActivityPresenter(sendSosMessage)
     }
 }

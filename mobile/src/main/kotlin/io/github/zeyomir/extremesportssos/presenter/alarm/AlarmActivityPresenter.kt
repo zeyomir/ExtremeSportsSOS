@@ -15,8 +15,8 @@ class AlarmActivityPresenter @Inject constructor(private val playSound: PlaySoun
     override fun startAlarm() {
         playSound.prepare()
         compositeDisposable.add(Observable.interval(1, TimeUnit.SECONDS)
-                .take(timeToWait)
-                .map { (timeToWait + 1 - it).toInt() }
+                .take(timeToWait + 1)
+                .map { (timeToWait - it).toInt() }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

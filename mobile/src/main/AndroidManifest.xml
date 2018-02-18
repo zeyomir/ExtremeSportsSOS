@@ -24,6 +24,7 @@
         <activity android:name=".view.main.MainActivity" />
         <activity android:name=".view.map.MapActivity" />
         <activity android:name=".view.alarm.AlarmActivity" />
+        <activity android:name=".view.send.SendMessageActivity" />
 
         <activity-alias
             android:name=".Launcher"

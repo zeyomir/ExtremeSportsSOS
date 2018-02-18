@@ -1,17 +1,17 @@
 package io.github.zeyomir.extremesportssos.data.sensors.service
 
-import com.google.android.gms.location.DetectedActivity
+import android.location.Location
 import io.github.zeyomir.extremesportssos.data.sensors.LocationService
-import io.github.zeyomir.extremesportssos.domain.entity.ActivityType
+import io.github.zeyomir.extremesportssos.domain.entity.Coordinates
 import io.reactivex.Observable
+import io.reactivex.Single
 import javax.inject.Inject
 
 
-class PlayServicesLocationService @Inject constructor(private val acivityObservable: Observable<DetectedActivity>) : LocationService {
-
-    override fun userMovingUpdates(): Observable<ActivityType> {
-        return acivityObservable
-                .map { if (it.type == DetectedActivity.STILL) ActivityType.STILL else ActivityType.MOVING }
+class PlayServicesLocationService @Inject constructor(private val observable: Observable<Location>) : LocationService {
+    override fun current(): Single<Coordinates> {
+        return observable
+                .map { Coordinates(it.latitude, it.longitude) }
+                .firstOrError()
     }
-
 }

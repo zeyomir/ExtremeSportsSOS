@@ -7,6 +7,7 @@ import io.github.zeyomir.extremesportssos.view.contact.ConfigureContactActivity
 import io.github.zeyomir.extremesportssos.view.main.MainActivity
 import io.github.zeyomir.extremesportssos.view.map.MapActivity
 import io.github.zeyomir.extremesportssos.view.message.ConfigureMessageActivity
+import io.github.zeyomir.extremesportssos.view.send.SendMessageActivity
 import io.github.zeyomir.extremesportssos.view.welcome.WelcomeActivity
 
 
@@ -29,4 +30,7 @@ abstract class BuildersModule {
 
     @ContributesAndroidInjector
     abstract fun bindAlarmActivity(): AlarmActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindSendMessageActivity(): SendMessageActivity
 }

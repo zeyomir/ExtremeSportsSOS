@@ -31,6 +31,6 @@ class MapActivityPresenter @Inject constructor(private val alertOnUserIsStill: A
     }
 
     override fun helpNeeded() {
-        view?.triggerAlarm()
+        view?.goToSendMessageScreen()
     }
 }

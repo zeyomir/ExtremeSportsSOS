@@ -13,6 +13,7 @@ import io.github.zeyomir.extremesportssos.R
 import io.github.zeyomir.extremesportssos.presenter.map.MapPresenter
 import io.github.zeyomir.extremesportssos.view.alarm.AlarmActivity
 import io.github.zeyomir.extremesportssos.view.main.MainActivity
+import io.github.zeyomir.extremesportssos.view.send.SendMessageActivity
 import kotlinx.android.synthetic.main.activity_map.*
 import permissions.dispatcher.NeedsPermission
 import permissions.dispatcher.OnPermissionDenied
@@ -83,6 +84,12 @@ class MapActivity : AppCompatActivity(), MapView {
 
     override fun triggerAlarm() {
         val i = Intent(this, AlarmActivity::class.java)
+        startActivity(i)
+        finish()
+    }
+
+    override fun goToSendMessageScreen() {
+        val i = Intent(this, SendMessageActivity::class.java)
         startActivity(i)
         finish()
     }

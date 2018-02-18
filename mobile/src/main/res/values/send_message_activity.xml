@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="send_message_title">Are you OK?</string>
+    <string name="send_message_text1">You didn\'t react within 60 seconds so I will send the SOS message now.</string>
+    <string name="send_message_sending">Sending message…</string>
+    <string name="send_message_sent">Message was sent</string>
+    <string name="send_message_fine_button">I\'M FINE</string>
+</resources>
