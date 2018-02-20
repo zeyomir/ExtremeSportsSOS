@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun setCurrentConfig(contact: SosContact, message: String) {
         contact_info.text = getString(R.string.main_contact, parseContact(contact))
-        sos_message.text = getString(R.string.main_message, message)
+        sos_message.text = message
     }
 
     private fun parseContact(contact: SosContact): String {
