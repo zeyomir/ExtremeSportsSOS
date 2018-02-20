@@ -64,6 +64,25 @@ android {
         }
     }
 
+    flavorDimensions "settings"
+
+    productFlavors {
+        create("real") {
+            dimension "settings"
+
+            sourceSets {
+                real.java.srcDirs += 'src/real/kotlin'
+            }
+        }
+        create("quick") {
+            dimension "settings"
+
+            sourceSets {
+                quick.java.srcDirs += 'src/quick/kotlin'
+            }
+        }
+    }
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }

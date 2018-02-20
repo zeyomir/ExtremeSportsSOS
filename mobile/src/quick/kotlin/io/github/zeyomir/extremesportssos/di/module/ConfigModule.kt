@@ -16,14 +16,14 @@ class ConfigModule {
 
     @Provides
     @Named("activityRecognitionInterval")
-    fun provideActivityRecognitionInterval() = 5_000L //60_000L
+    fun provideActivityRecognitionInterval() = 5_000L
 
     @Provides
     @Named("timeToTellStillness")
-    fun provideTimeToTellStillness() = TimePeriod(10, TimeUnit.SECONDS) //TimePeriod(5, TimeUnit.MINUTES)
+    fun provideTimeToTellStillness() = TimePeriod(10, TimeUnit.SECONDS)
 
     @Provides
     @Named("timeToWaitBeforeSendingMessage")
-    fun provideTimeToWaitBeforeSendingMessage() = 10L //60L
+    fun provideTimeToWaitBeforeSendingMessage() = 10L
 
 }
