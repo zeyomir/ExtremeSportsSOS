@@ -22,7 +22,6 @@ import io.github.zeyomir.extremesportssos.presenter.map.MapPresenter
 import io.github.zeyomir.extremesportssos.view.alarm.AlarmActivity
 import io.github.zeyomir.extremesportssos.view.main.MainActivity
 import io.github.zeyomir.extremesportssos.view.send.SendMessageActivity
-import io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesProvider.REQUEST_CHECK_SETTINGS
 import kotlinx.android.synthetic.main.activity_map.*
 import permissions.dispatcher.NeedsPermission
 import permissions.dispatcher.OnPermissionDenied
@@ -34,6 +33,7 @@ import javax.inject.Inject
 class MapActivity : AppCompatActivity(), MapView {
     @Inject
     lateinit var presenter: MapPresenter
+    private val REQUEST_CHECK_GPS_SETTINGS: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -54,7 +54,7 @@ class MapActivity : AppCompatActivity(), MapView {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CHECK_SETTINGS) {
+        if (requestCode == REQUEST_CHECK_GPS_SETTINGS) {
             if (resultCode == Activity.RESULT_OK) {
                 presenter.startMonitoringLocation()
             } else {
@@ -85,7 +85,7 @@ class MapActivity : AppCompatActivity(), MapView {
         task.addOnFailureListener(this) { e ->
             if (e is ResolvableApiException) {
                 try {
-                    e.startResolutionForResult(this@MapActivity, REQUEST_CHECK_SETTINGS)
+                    e.startResolutionForResult(this@MapActivity, REQUEST_CHECK_GPS_SETTINGS)
                 } catch (sendEx: IntentSender.SendIntentException) {
                     Log.e("MapActivity", sendEx.message)
                 }

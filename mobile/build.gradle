@@ -89,21 +89,21 @@ android {
 }
 
 dependencies {
-    compile project(path: ':domain')
-    compile project(path: ':data')
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
 
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "com.android.support:design:$supportVersion"
 
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
-    compile "com.google.dagger:dagger:$daggerVersion"
-    compile "com.google.dagger:dagger-android:$daggerVersion"
-    compile "com.google.dagger:dagger-android-support:$daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
 
 //    compile "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile("com.github.hotchemi:permissionsdispatcher:$permissionsdispatcherVersion") {
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation("com.github.hotchemi:permissionsdispatcher:$permissionsdispatcherVersion") {
         exclude module: "support-v13"
     }
     kapt "com.github.hotchemi:permissionsdispatcher-processor:$permissionsdispatcherVersion"

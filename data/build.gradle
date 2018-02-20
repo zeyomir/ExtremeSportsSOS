@@ -25,14 +25,14 @@ android {
 }
 
 dependencies {
-    compile project(path: ':domain')
+    implementation project(path: ':domain')
 
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    compile "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
 
-    compile 'io.nlopez.smartlocation:library:3.3.3'
-    compile 'io.nlopez.smartlocation:rx:3.3.3'
-    compile "com.google.android.gms:play-services-location:$playServicesVersion"
+    api 'io.nlopez.smartlocation:library:3.3.3'
+    implementation 'io.nlopez.smartlocation:rx:3.3.3'
+    api "com.google.android.gms:play-services-location:$playServicesVersion"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
 
