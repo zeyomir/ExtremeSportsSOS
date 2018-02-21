@@ -34,6 +34,8 @@ dependencies {
     implementation 'io.nlopez.smartlocation:rx:3.3.3'
     api "com.google.android.gms:play-services-location:$playServicesVersion"
 
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
 
     testImplementation "junit:junit:$jUnitVersion"

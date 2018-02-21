@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), MainView {
         return if (contact.contactName.isNullOrEmpty()) {
             contact.contactInfo
         } else {
-            """${contact.contactName} (${contact.contactInfo})"""
+            "${contact.contactName} (${contact.contactInfo})"
         }
     }
 }

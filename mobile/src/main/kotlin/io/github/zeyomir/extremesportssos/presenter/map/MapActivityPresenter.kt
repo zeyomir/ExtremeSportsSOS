@@ -1,10 +1,10 @@
 package io.github.zeyomir.extremesportssos.presenter.map
 
-import android.util.Log
 import io.github.zeyomir.extremesportssos.domain.usecase.AlertOnUserIsStillUseCase
 import io.github.zeyomir.extremesportssos.presenter.BasePresenter
 import io.github.zeyomir.extremesportssos.view.map.MapView
 import io.reactivex.android.schedulers.AndroidSchedulers
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -23,9 +23,9 @@ class MapActivityPresenter @Inject constructor(private val alertOnUserIsStill: A
                         .subscribe({
                             view?.triggerAlarm()
                         }, {
-                            Log.e("", "error :(\n${it.message}")
+                            Timber.e(it)
                         }, {
-                            Log.d("", "completed without user stillness")
+                            Timber.w("completed without user stillness")
                         })
         )
     }

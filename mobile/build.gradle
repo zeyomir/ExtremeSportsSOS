@@ -94,6 +94,7 @@ dependencies {
 
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "com.android.support:design:$supportVersion"
+    implementation "com.android.support:appcompat-v7:$supportVersion"
 
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
@@ -101,15 +102,13 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
 
-//    compile "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation("com.github.hotchemi:permissionsdispatcher:$permissionsdispatcherVersion") {
         exclude module: "support-v13"
     }
     kapt "com.github.hotchemi:permissionsdispatcher-processor:$permissionsdispatcherVersion"
-    // + rxbinding?
 
-//    compile "com.jakewharton.timber:timber:$timberVersion"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
 
 
     // + android architecture - room
@@ -121,7 +120,7 @@ dependencies {
     // + crashlytics
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
-    implementation "com.android.support:appcompat-v7:$supportVersion"
+
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"

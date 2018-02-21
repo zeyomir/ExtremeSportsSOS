@@ -9,6 +9,7 @@ import io.github.zeyomir.extremesportssos.presenter.alarm.AlarmPresenter
 import io.github.zeyomir.extremesportssos.view.main.MainActivity
 import io.github.zeyomir.extremesportssos.view.send.SendMessageActivity
 import kotlinx.android.synthetic.main.activity_alarm.*
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -22,6 +23,7 @@ class AlarmActivity : AppCompatActivity(), AlarmView {
         setContentView(R.layout.activity_alarm)
         presenter.bind(this)
         fine.setOnClickListener {
+            Timber.v("User is fine")
             val i = Intent(this, MainActivity::class.java)
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(i)
@@ -37,6 +39,7 @@ class AlarmActivity : AppCompatActivity(), AlarmView {
     }
 
     override fun updateTimer(i: Int) {
+        Timber.v("Time left\t%d", i)
         timer.text = resources.getQuantityString(R.plurals.alarm_seconds, i, i)
     }
 

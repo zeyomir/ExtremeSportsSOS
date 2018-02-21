@@ -4,8 +4,10 @@ import dagger.Module
 import dagger.Provides
 import io.github.zeyomir.extremesportssos.R
 import io.github.zeyomir.extremesportssos.domain.entity.TimePeriod
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
+import javax.inject.Singleton
 
 
 @Module
@@ -25,5 +27,9 @@ class ConfigModule {
     @Provides
     @Named("timeToWaitBeforeSendingMessage")
     fun provideTimeToWaitBeforeSendingMessage() = 60L
+
+    @Provides
+    @Singleton
+    fun provideTimberTree(): Timber.Tree = Timber.DebugTree()
 
 }
