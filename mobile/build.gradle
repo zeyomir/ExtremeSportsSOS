@@ -3,8 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-/*Properties credentials = new Properties()
-credentials.load(new FileInputStream(file(rootProject.file("credentials.properties"))))*/
+Properties credentials = new Properties()
+credentials.load(new FileInputStream(file(rootProject.file("credentials.properties"))))
 def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
 def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
 
@@ -31,22 +31,22 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-    /*signingConfigs {
+    signingConfigs {
         master {
             storeFile file(credentials["signing.store.file"])
             storePassword credentials["signing.store.password"]
             keyAlias credentials["signing.key.alias"]
             keyPassword credentials["signing.key.password"]
         }
-    }*/
+    }
 
     buildTypes {
         release {
             debuggable false
             jniDebuggable false
-            minifyEnabled true
-            shrinkResources true
-//            signingConfig signingConfigs.master
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.master
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             sourceSets {
@@ -61,7 +61,7 @@ android {
             jniDebuggable true
             minifyEnabled false
             shrinkResources false
-//            signingConfig signingConfigs.master
+            signingConfig signingConfigs.master
 
             buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
             buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
