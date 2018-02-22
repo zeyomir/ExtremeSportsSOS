@@ -48,6 +48,10 @@ android {
             shrinkResources true
 //            signingConfig signingConfigs.master
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            sourceSets {
+                release.java.srcDirs += 'src/release/kotlin'
+            }
         }
 
         debug {
@@ -61,24 +65,9 @@ android {
 
             buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
             buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
-        }
-    }
-
-    flavorDimensions "settings"
-
-    productFlavors {
-        create("real") {
-            dimension "settings"
 
             sourceSets {
-                real.java.srcDirs += 'src/real/kotlin'
-            }
-        }
-        create("quick") {
-            dimension "settings"
-
-            sourceSets {
-                quick.java.srcDirs += 'src/quick/kotlin'
+                debug.java.srcDirs += 'src/debug/kotlin'
             }
         }
     }
