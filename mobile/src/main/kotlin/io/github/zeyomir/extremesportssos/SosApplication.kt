@@ -29,8 +29,6 @@ class SosApplication : Application(), HasActivityInjector {
         initTimber()
         initLeakCanary()
         initCrashlytics()
-
-        throw RuntimeException("fabric test!")
     }
 
     private fun initDagger() =
