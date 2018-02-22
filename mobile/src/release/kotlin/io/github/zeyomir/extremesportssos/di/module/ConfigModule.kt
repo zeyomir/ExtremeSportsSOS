@@ -31,7 +31,7 @@ class ConfigModule {
 
     @Provides
     @Singleton
-    fun provideTimberTree(): Timber.Tree = Timber.DebugTree()
+    fun provideTimberTree(): Timber.Tree = CrashlyticsTree()
 
     @Provides
     @Singleton
