@@ -1,5 +1,6 @@
 package io.github.zeyomir.extremesportssos.di.module
 
+import com.crashlytics.android.Crashlytics
 import dagger.Module
 import dagger.Provides
 import io.github.zeyomir.extremesportssos.R
@@ -32,4 +33,7 @@ class ConfigModule {
     @Singleton
     fun provideTimberTree(): Timber.Tree = Timber.DebugTree()
 
+    @Provides
+    @Singleton
+    fun provideCrashlytics() = Crashlytics()
 }

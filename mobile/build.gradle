@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
 
 Properties credentials = new Properties()
 credentials.load(new FileInputStream(file(rootProject.file("credentials.properties"))))
@@ -29,6 +30,10 @@ android {
         versionName androidVersionName
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+            FABRIC_API_KEY: credentials["fabric.api.key"]
+        ]
     }
 
     signingConfigs {
@@ -109,13 +114,14 @@ dependencies {
 
     implementation "com.jakewharton.timber:timber:$timberVersion"
 
-
     // + android architecture - room
 
     //crashes
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
-    // + crashlytics
+    api ('com.crashlytics.sdk.android:crashlytics:2.9.0@aar') {
+        transitive = true
+    }
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
 

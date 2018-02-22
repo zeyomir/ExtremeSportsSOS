@@ -1,7 +1,10 @@
 package io.github.zeyomir.extremesportssos.di.module
 
+import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.core.CrashlyticsCore
 import dagger.Module
 import dagger.Provides
+import io.github.zeyomir.extremesportssos.BuildConfig
 import io.github.zeyomir.extremesportssos.R
 import io.github.zeyomir.extremesportssos.domain.entity.TimePeriod
 import timber.log.Timber
@@ -31,5 +34,17 @@ class ConfigModule {
     @Provides
     @Singleton
     fun provideTimberTree(): Timber.Tree = Timber.DebugTree()
+
+    @Provides
+    @Singleton
+    fun provideCrashlyticsCore(): CrashlyticsCore = CrashlyticsCore.Builder()
+            .disabled(true)
+            .build()
+
+    @Provides
+    @Singleton
+    fun provideCrashlytics(crashlyticsCore: CrashlyticsCore): Crashlytics = Crashlytics.Builder()
+            .core(crashlyticsCore)
+            .build()
 
 }
