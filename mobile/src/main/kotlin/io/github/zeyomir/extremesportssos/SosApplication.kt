@@ -2,6 +2,7 @@ package io.github.zeyomir.extremesportssos
 
 import android.app.Activity
 import android.app.Application
+import com.squareup.leakcanary.LeakCanary
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -22,6 +23,7 @@ class SosApplication : Application(), HasActivityInjector {
         super.onCreate()
         initDagger()
         initTimber()
+        initLeakCanary()
     }
 
     private fun initDagger() =
@@ -32,5 +34,12 @@ class SosApplication : Application(), HasActivityInjector {
 
     private fun initTimber() {
         Timber.plant(timberTree)
+    }
+
+    private fun initLeakCanary() {
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return
+        }
+        LeakCanary.install(this)
     }
 }
