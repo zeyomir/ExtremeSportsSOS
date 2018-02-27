@@ -20,7 +20,6 @@ class AlarmActivityPresenter @Inject constructor(private val playSound: PlaySoun
         if (state.seconds > 0) {
             startAlarm(state.seconds)
         } else {
-            playSound.finish()
             view?.goToSendMessageScreen()
         }
     }
@@ -30,21 +29,28 @@ class AlarmActivityPresenter @Inject constructor(private val playSound: PlaySoun
     }
 
     private fun startAlarm(seconds: Long) {
-        playSound.prepare()
-        compositeDisposable.add(Observable.interval(1, TimeUnit.SECONDS)
+        val timer = Observable.interval(1, TimeUnit.SECONDS)
                 .take(seconds + 1)
                 .map { (seconds - it).toInt() }
+
+        val timerWithSound = Observable.using({
+            playSound.prepare()
+            playSound
+        }, { playSound ->
+            timer.doOnNext { playSound.execute() }
+        }, {
+            it.finish()
+        })
+
+        compositeDisposable.add(timerWithSound
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     state.seconds = it.toLong()
                     view?.updateTimer(it)
-                    playSound.execute()
                 }, {
-                    playSound.finish()
                     Timber.e(it)
                 }, {
-                    playSound.finish()
                     view?.goToSendMessageScreen()
                 }))
     }
