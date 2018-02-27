@@ -18,7 +18,7 @@ internal class PreferencesService @Inject constructor(private val preferences: S
         else SosContact(info, name)
     }
 
-    override fun getSosMessage(): String {
+    override fun getSosMessage(): String? {
         val message = preferences.getString(MESSAGE_HELP_KEY, null)
         Timber.v("Sos message retrieved (%s)", message)
         return message
