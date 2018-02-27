@@ -5,5 +5,6 @@ import io.github.zeyomir.extremesportssos.view.alarm.AlarmView
 
 
 interface AlarmPresenter : BasePresenerInterface<AlarmView> {
-    fun startAlarm()
+    fun applyState(newState: AlarmStatus?)
+    fun getState(): AlarmStatus
 }

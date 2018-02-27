@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import dagger.android.AndroidInjection
 import io.github.zeyomir.extremesportssos.R
 import io.github.zeyomir.extremesportssos.presenter.alarm.AlarmPresenter
+import io.github.zeyomir.extremesportssos.presenter.alarm.AlarmStatus
 import io.github.zeyomir.extremesportssos.view.main.MainActivity
 import io.github.zeyomir.extremesportssos.view.send.SendMessageActivity
 import kotlinx.android.synthetic.main.activity_alarm.*
@@ -30,7 +31,11 @@ class AlarmActivity : AppCompatActivity(), AlarmView {
             finish()
         }
 
-        presenter.startAlarm()
+        presenter.applyState(lastCustomNonConfigurationInstance as AlarmStatus?)
+    }
+
+    override fun onRetainCustomNonConfigurationInstance(): Any {
+        return presenter.getState()
     }
 
     override fun onDestroy() {
