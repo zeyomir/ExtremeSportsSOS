@@ -5,5 +5,6 @@ import io.github.zeyomir.extremesportssos.view.send.SendMessageView
 
 
 interface SendMessagePresenter : BasePresenerInterface<SendMessageView> {
-    fun sendMessage()
+    fun applyState(newState: SentStatus?)
+    fun getState(): SentStatus
 }

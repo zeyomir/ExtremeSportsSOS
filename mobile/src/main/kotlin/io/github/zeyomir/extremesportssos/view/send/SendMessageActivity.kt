@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import dagger.android.AndroidInjection
 import io.github.zeyomir.extremesportssos.R
 import io.github.zeyomir.extremesportssos.presenter.send.SendMessagePresenter
+import io.github.zeyomir.extremesportssos.presenter.send.SentStatus
 import io.github.zeyomir.extremesportssos.view.main.MainActivity
 import kotlinx.android.synthetic.main.activity_send_message.*
 import javax.inject.Inject
@@ -27,7 +28,11 @@ class SendMessageActivity : AppCompatActivity(), SendMessageView {
             finish()
         }
 
-        presenter.sendMessage()
+        presenter.applyState(lastCustomNonConfigurationInstance as SentStatus?)
+    }
+
+    override fun onRetainCustomNonConfigurationInstance(): Any {
+        return presenter.getState()
     }
 
     override fun onDestroy() {

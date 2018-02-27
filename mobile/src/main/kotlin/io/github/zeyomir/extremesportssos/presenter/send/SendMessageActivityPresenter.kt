@@ -8,11 +8,28 @@ import javax.inject.Inject
 
 
 class SendMessageActivityPresenter @Inject constructor(private val sendSosMessage: SendSosMessageUseCase) : BasePresenter<SendMessageView>(), SendMessagePresenter {
-    override fun sendMessage() {
+    private lateinit var state: SentStatus
+
+    override fun applyState(newState: SentStatus?) {
+        state = newState ?: SentStatus()
+
+        if (state.sent) {
+            view?.showSent()
+        } else {
+            sendMessage()
+        }
+    }
+
+    override fun getState(): SentStatus {
+        return state
+    }
+
+    private fun sendMessage() {
         view?.showSending()
         compositeDisposable.add(sendSosMessage.execute()
                 .subscribe({
                     view?.showSent()
+                    this.state.sent = true
                 }, {
                     Timber.e(it)
                 }))
