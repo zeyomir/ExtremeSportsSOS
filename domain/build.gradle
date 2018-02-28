@@ -37,7 +37,6 @@ dependencies {
 
     testImplementation "junit:junit:$jUnitVersion"
     testImplementation "org.hamcrest:hamcrest-library:$hamcrestVersion"
-//    testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation "com.nhaarman:mockito-kotlin:$kotlinMockitoVersion"
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 }
