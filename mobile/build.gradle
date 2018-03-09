@@ -128,7 +128,12 @@ dependencies {
 
     testImplementation "junit:junit:$jUnitVersion"
     testImplementation "org.hamcrest:hamcrest-library:$hamcrestVersion"
-    testImplementation "com.nhaarman:mockito-kotlin:$kotlinMockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    testImplementation("com.nhaarman:mockito-kotlin:$kotlinMockitoVersion") {
+        exclude group: 'org.jetbrains.kotlin'
+        exclude group: 'org.mockito'
+    }
+
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
