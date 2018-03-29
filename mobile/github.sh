@@ -15,7 +15,7 @@ github_set_status() {
             \"context\": \"continuous-integration/appcenter\"
         }" \
         -H "Authorization: token $GITHUB_TOKEN" \ 
-        https://api.github.com/repos/zeyomir/ExtremeSportsSOS/statuses/$SHA1
+        https://api.github.com/repos/$USER/$BUILD_REPOSITORY_NAME/statuses/$BUILD_SOURCEVERSION
 
 }
 
