@@ -7,16 +7,14 @@ github_set_status() {
     local status job_status
     local "${@}"
 
-    curl -X POST -d \
+    curl -X POST https://api.github.com/repos/$USER/$BUILD_REPOSITORY_NAME/statuses/$BUILD_SOURCEVERSION -d \
         "{
             \"state\": \"$status\", 
             \"target_url\": \"$build_url\",
             \"description\": \"The build status was: $job_status!\",
             \"context\": \"continuous-integration/appcenter\"
         }" \
-        -H "Authorization: token $GITHUB_TOKEN" \ 
-        https://api.github.com/repos/$USER/$BUILD_REPOSITORY_NAME/statuses/$BUILD_SOURCEVERSION
-
+        -H "Authorization: token $GITHUB_TOKEN"
 }
 
 github_set_status_pending() {
