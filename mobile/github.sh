@@ -11,10 +11,11 @@ github_set_status() {
         "{
             \"state\": \"$status\", 
             \"target_url\": \"$build_url\",
-            \"description\": \"The build status was: $job_status!\",
+            \"description\": \"The build status is: $job_status!\",
             \"context\": \"continuous-integration/appcenter\"
         }" \
-        -H "Authorization: token $GITHUB_TOKEN"
+        -H "Authorization: token $GITHUB_TOKEN" \
+        -H "Accept: application/vnd.github.v3.raw+json"
 }
 
 github_set_status_pending() {
@@ -28,3 +29,4 @@ github_set_status_success() {
 github_set_status_fail() {
     github_set_status status="failure" job_status="$AGENT_JOBSTATUS"
 }
+

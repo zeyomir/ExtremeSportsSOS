@@ -8,5 +8,3 @@ else
     github_set_status_success
 fi
 
-
-exit 0
