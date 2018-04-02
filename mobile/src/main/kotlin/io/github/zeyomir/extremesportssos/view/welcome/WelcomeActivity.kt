@@ -3,7 +3,6 @@ package io.github.zeyomir.extremesportssos.view.welcome
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.telephony.SmsManager
 import android.view.View
 import dagger.android.AndroidInjection
 import io.github.zeyomir.extremesportssos.R

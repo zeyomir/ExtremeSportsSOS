@@ -27,7 +27,7 @@ android {
         versionCode androidVersionCode
         versionName androidVersionName
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "io.github.zeyomir.extremesportssos.MockTestRunner"
     }
 
     buildTypes {
@@ -63,6 +63,7 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
         test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
 }
 
@@ -118,7 +119,7 @@ dependencies {
     //crashes
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
-    api ('com.crashlytics.sdk.android:crashlytics:2.9.0@aar') {
+    api('com.crashlytics.sdk.android:crashlytics:2.9.0@aar') {
         transitive = true
     }
 
@@ -134,6 +135,17 @@ dependencies {
 
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$daggerVersion"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "junit:junit:$jUnitVersion"
+    androidTestImplementation "org.hamcrest:hamcrest-library:$hamcrestVersion"
+    androidTestImplementation "org.mockito:mockito-android:$mockitoVersion"
+    androidTestImplementation("com.nhaarman:mockito-kotlin:$kotlinMockitoVersion") {
+        exclude group: 'org.jetbrains.kotlin'
+        exclude group: 'org.mockito'
+    }
+
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
 }

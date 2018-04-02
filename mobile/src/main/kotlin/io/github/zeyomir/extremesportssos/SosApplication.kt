@@ -13,7 +13,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 
-class SosApplication : Application(), HasActivityInjector {
+open class SosApplication : Application(), HasActivityInjector {
     @Inject
     lateinit var dispachingAndroidInjector: DispatchingAndroidInjector<Activity>
     @Inject
