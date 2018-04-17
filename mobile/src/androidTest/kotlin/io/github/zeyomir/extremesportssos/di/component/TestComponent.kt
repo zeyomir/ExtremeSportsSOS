@@ -5,6 +5,7 @@ import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import io.github.zeyomir.extremesportssos.MockApplication
 import io.github.zeyomir.extremesportssos.data.database.KeyValueService
+import io.github.zeyomir.extremesportssos.data.sensors.ActivityDetectionService
 import io.github.zeyomir.extremesportssos.di.module.*
 import javax.inject.Singleton
 
@@ -23,4 +24,6 @@ interface TestComponent {
     fun inject(target: MockApplication)
 
     fun keyValueService(): KeyValueService
+
+    fun activityDetectionService(): ActivityDetectionService
 }
