@@ -3,7 +3,6 @@ package io.github.zeyomir.extremesportssos.view.main
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
 import dagger.android.AndroidInjection
 import io.github.zeyomir.extremesportssos.R
 import io.github.zeyomir.extremesportssos.domain.entity.SosContact
