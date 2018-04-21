@@ -13,11 +13,11 @@ buildscript {
         androidTargetSdkVersion = 27
         androidCompileSdkVersion = 27
 
-        kotlinVersion = '1.2.31'
+        kotlinVersion = '1.2.40'
 
         //Libraries
-        supportVersion = '27.1.0'
-        playServicesVersion = '11.8.0'
+        supportVersion = '27.1.1'
+        playServicesVersion = '15.0.0'
 
         daggerVersion = '2.13'
         rxJavaVersion = '2.1.1'
@@ -41,7 +41,7 @@ buildscript {
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath 'com.android.tools.build:gradle:3.1.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath 'io.fabric.tools:gradle:1.+'
 
