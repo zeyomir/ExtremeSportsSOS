@@ -138,6 +138,7 @@ dependencies {
     kaptAndroidTest "com.google.dagger:dagger-compiler:$daggerVersion"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$espressoVersion"
     androidTestImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "org.hamcrest:hamcrest-library:$hamcrestVersion"
     androidTestImplementation "org.mockito:mockito-android:$mockitoVersion"
